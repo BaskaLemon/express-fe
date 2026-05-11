@@ -1,10 +1,11 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-import Link from "next/link";
+
 import { useRouter, useSearchParams } from "next/navigation";
 import { api } from "@/lib/api";
 import { auth } from "@/lib/auth";
+import Link from "next/link";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -61,7 +62,9 @@ export default function LoginPage() {
         >
           {loading ? "..." : "Login"}
         </button>
-        {status && <p className="text-sm text-red-600 dark:text-red-400">{status}</p>}
+        {status && (
+          <p className="text-sm text-red-600 dark:text-red-400">{status}</p>
+        )}
         <p className="text-sm text-zinc-500">
           No account?{" "}
           <Link href="/register" className="underline">
